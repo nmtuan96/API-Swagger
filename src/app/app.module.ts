@@ -18,6 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LocalStorageService } from './Service/local-storage/local-storage.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ShowListPetComponent } from './Component-Model/Pet/show-list-pet/show-list-pet.component';
+import { CreatePetComponent } from './Component-Model/Pet/create-pet/create-pet.component';
+import { MatSelectModule } from '@angular/material/select'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 @NgModule({
   declarations: [
@@ -26,9 +31,12 @@ import { LocalStorageService } from './Service/local-storage/local-storage.servi
     ShowListCategoryComponent,
     CreateAndUpdateTagComponent,
     ShowListTagComponent,
+    ShowListPetComponent,
+    CreatePetComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
@@ -39,7 +47,9 @@ import { LocalStorageService } from './Service/local-storage/local-storage.servi
     MatCheckboxModule,
     MatIconModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

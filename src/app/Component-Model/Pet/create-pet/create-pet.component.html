@@ -1,0 +1,55 @@
+<h3>Create and Update Category</h3>
+<form class="example-form shadow p-3 mb-5 bg-white rounded" [formGroup]="pet" novalidate width="100%">
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" placeholder="Name Category" formControlName="name">
+        <!-- <mat-error *ngIf="customer.controls['name'].invalid && (customer.controls['name'].dirty || customer.controls['name'].touched)">
+            <div *ngIf="customer.controls['name'].errors.required">Name is Required</div>
+            <div *ngIf="customer.controls['name'].errors.minlength">Minium 6 Chracters are Required</div>
+            <div *ngIf="customer.controls['name'].errors.maxlength">Maxium 20 Chracters are Required</div>
+        </mat-error> -->
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Category</mat-label>
+        <select matNativeControl required formControlName="category" >
+          <option *ngFor="let category of listCategory" value="{{category}}">{{category.name}}</option>
+        </select>
+      </mat-form-field>
+
+      
+      <section class="example-section">
+        <mat-label>Tags</mat-label>
+        <span class="example-list-section">
+          <div *ngFor="let tag of listTag">
+            <mat-checkbox formControlName="tag">{{tag.name}}</mat-checkbox>
+          </div>
+        </span>
+      </section>
+
+
+      <div>
+        <mat-label>Choose Image:  </mat-label>
+          <input type="file" formControlName="photoUrls">
+      </div>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <select matNativeControl required formControlName="status">
+          <option value="available">Available</option>
+          <option value="pending">Pending</option>
+          <option value="sold">Sold</option>
+        </select>
+      </mat-form-field>
+
+
+      <section>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" type="submit" (click)="addPet()">Submit</button>
+            <!-- <button mat-raised-button color="primary" type="submit" (click)="updatePet()">Update</button> -->
+            <button mat-raised-button color="warn" type="submit" (click)="back()" >Back</button>
+        </div>
+    </section>
+</form>

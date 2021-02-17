@@ -10,7 +10,7 @@ import { LocalStorageService } from 'src/app/Service/local-storage/local-storage
   styleUrls: ['./create-and-update-tag.component.css']
 })
 export class CreateAndUpdateTagComponent implements OnInit {
-  category: any = this.fb.group({
+  tags: any = this.fb.group({
     id: new FormControl(''),
     name: new FormControl(''),
   });
@@ -18,58 +18,58 @@ export class CreateAndUpdateTagComponent implements OnInit {
   CheckUpdate: boolean = false;
   CheckCreate: boolean = false;
   list: any = [];
-  idUpdateCategory: any;
+  idUpdateTag: any;
   booleanCheckUpdate: boolean = false;
-  valueCategory: any;
+  valueTag: any;
   constructor(private fb: FormBuilder, private localStorage: LocalStorageService, private router: Router, private data: DataService) { }
 
   ngOnInit(): void {
     this.list = this.localStorage.get('2');
     if(this.data.checkData){
       this.data.shareID.subscribe( x => {
-        this.idUpdateCategory= x;
-        this.booleanCheckUpdate= true;
-        this.valueCategory= this.list[x];
-        this.category.controls['id'].setValue(this.valueCategory.id);
-        this.category.controls['name'].setValue(this.valueCategory.name);
+        this.idUpdateTag = x;
+        this.booleanCheckUpdate = true;
+        this.valueTag= this.list[x];
+        this.tags.controls['id'].setValue(this.valueTag.id);
+        this.tags.controls['name'].setValue(this.valueTag.name);
       });
-      this.data.checkData=false;
+      this.data.checkData = false;
     }
-    if(this.valueCategory){
+    if(this.valueTag){
       this.CheckUpdate = true;
     }else{
-      this.CheckCreate= true;
+      this.CheckCreate = true;
     }
   }
 
   addTag(){
-    if(!this.category.value.id){
-      this.category.value.id = this.list.length +1;
-      this.list.push(this.category.value);
+    if(!this.tags.value.id){
+      this.tags.value.id = this.list.length +1;
+      this.list.push(this.tags.value);
       this.localStorage.set('2', this.list);
     }
-      this.category.reset();
+      this.tags.reset();
       this.CheckCreate = false;
-      this.router.navigateByUrl('/categories');
+      this.router.navigateByUrl('/tags');
   }
 
-  updateCustomer(){
+  updateTag(){
     if(this.booleanCheckUpdate){
       for (let i in this.list) {
-        if(this.idUpdateCategory == i){
-          this.list[i] = this.category.value
+        if(this.idUpdateTag == i){
+          this.list[i] = this.tags.value
         }
       }
       this.localStorage.set('2',this.list);
-      this.category.reset();
-      this.idUpdateCategory = false;
+      this.tags.reset();
+      this.idUpdateTag = false;
       this.CheckUpdate = false;
-      this.router.navigateByUrl('/categories');
+      this.router.navigateByUrl('/tags');
     }
   }
 
   back(){
-    this.category.reset();
-    this.router.navigateByUrl('/categories');
+    this.tags.reset();
+    this.router.navigateByUrl('/tags');
   }
 }
