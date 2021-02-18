@@ -23,7 +23,7 @@
         <mat-label>Tags</mat-label>
         <span class="example-list-section">
           <div *ngFor="let tag of listTag,let i = index">
-            <mat-checkbox  (change)="changeSelection(i)">{{tag.name}}</mat-checkbox>
+            <mat-checkbox  (change)="changeSelection(i)" [checked]="listCheckBooleanTag[i]">{{tag.name}}</mat-checkbox>
           </div>
         </span>
       </section>
@@ -47,8 +47,7 @@
 
       <section>
         <div class="example-button-row">
-            <button mat-raised-button color="primary" type="submit" (click)="addPet()">Submit</button>
-            <!-- <button mat-raised-button color="primary" type="submit" (click)="updatePet()">Update</button> -->
+            <button mat-raised-button color="primary" type="submit" (click)="UpdatePet()">Update</button>
             <button mat-raised-button color="warn" type="submit" (click)="back()" >Back</button>
         </div>
     </section>

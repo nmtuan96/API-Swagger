@@ -4,6 +4,7 @@ import { CreateAndUpdateCategoryComponent } from './Component-Model/Category/cre
 import { ShowListCategoryComponent } from './Component-Model/Category/show-list-category/show-list-category.component';
 import { CreatePetComponent } from './Component-Model/Pet/create-pet/create-pet.component';
 import { ShowListPetComponent } from './Component-Model/Pet/show-list-pet/show-list-pet.component';
+import { UpdatePetComponent } from './Component-Model/Pet/update-pet/update-pet.component';
 import { CreateAndUpdateTagComponent } from './Component-Model/Tag/create-and-update-tag/create-and-update-tag.component';
 import { ShowListTagComponent } from './Component-Model/Tag/show-list-tag/show-list-tag.component';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'tags/create', component: CreateAndUpdateTagComponent },
   { path: 'pets', component: ShowListPetComponent },
   { path: 'pets/create', component: CreatePetComponent },
+  { path: 'pets/update/:id', component: UpdatePetComponent },
 ];
 
 @NgModule({

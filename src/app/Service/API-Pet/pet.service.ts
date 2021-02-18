@@ -19,9 +19,12 @@ export class PetService {
               })
       })
   }
-  updatePet = (id,pets): Promise<Object> => {
+
+
+  
+  updatePet = (pets): Promise<Object> => {
       return new Promise((resolve, reject) => {
-          let url = "http://localhost:8080/customers/update/"+id;
+          let url = "https://petstore.swagger.io/v2/pet";
           this.httpClient.put(url,pets)
               .subscribe(res => {
                   resolve(res);
@@ -32,7 +35,7 @@ export class PetService {
   }
   detailPet = (id): Promise<Object> => {
       return new Promise((resolve, reject) => {
-          let url = "http://localhost:8080/customers/detail/"+id;
+          let url = "https://petstore.swagger.io/v2/pet/"+id;
           this.httpClient.get(url)
               .subscribe(res => {
                   resolve(res);
@@ -41,9 +44,9 @@ export class PetService {
               })
       })
   }
-  deleteCustomer = (id): Promise<Object> => {
+  deletePet = (id): Promise<Object> => {
       return new Promise((resolve, reject) => {
-          let url = "http://localhost:8080/customers/delete/"+id;
+          let url = "https://petstore.swagger.io/v2/pet/"+id;
           this.httpClient.delete(url,id)
               .subscribe(res => {
                   resolve(res);

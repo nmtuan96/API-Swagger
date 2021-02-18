@@ -25,7 +25,9 @@
 
     <ng-container matColumnDef="categories-name">
         <th mat-header-cell *matHeaderCellDef> Category name</th>
-          <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+          <td mat-cell *matCellDef="let element">
+            <div *ngIf= "element.category">{{element.category.name}}</div>
+          </td>
     </ng-container>
 
 
@@ -48,8 +50,8 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element; let i = index"> 
-          <button mat-raised-button color="primary" type="submit" (click)="editCategory(i)">Edit</button>
-          <button mat-raised-button color="accent" type="submit" (click)="deleteCategory(i)">Delete</button>
+          <button mat-raised-button color="primary" type="submit" (click)="editPet(element.id)">Edit</button>
+          <button mat-raised-button color="accent" type="submit" (click)="deletePet(element.id)">Delete</button>
         </td>
     </ng-container>
 

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateAndUpdateCategoryComponent } from './Component-Model/Category/create-and-update-category/create-and-update-category.component';
 import { ShowListCategoryComponent } from './Component-Model/Category/show-list-category/show-list-category.component';
 import { CreateAndUpdateTagComponent } from './Component-Model/Tag/create-and-update-tag/create-and-update-tag.component';
@@ -22,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShowListPetComponent } from './Component-Model/Pet/show-list-pet/show-list-pet.component';
 import { CreatePetComponent } from './Component-Model/Pet/create-pet/create-pet.component';
 import { MatSelectModule } from '@angular/material/select'
-import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { UpdatePetComponent } from './Component-Model/Pet/update-pet/update-pet.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
     ShowListTagComponent,
     ShowListPetComponent,
     CreatePetComponent,
+    UpdatePetComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
     MatFormFieldModule,
     MatSelectModule,
     MatProgressBarModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
